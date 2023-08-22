@@ -132,7 +132,7 @@ fun main() = runBlocking {
 
                 print("Ingin memesan lagi (Y/n)? ")
                 val choice = readln();
-                var enum: Any;
+                var enum: Enum;
 
                 if (choice == "y"){
                     enum = Enum.YES;
