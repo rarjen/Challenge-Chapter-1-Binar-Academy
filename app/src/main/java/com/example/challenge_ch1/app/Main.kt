@@ -1,5 +1,6 @@
 package com.example.challenge_ch1.app
 
+import com.example.challenge_ch1.data.Enum
 import com.example.challenge_ch1.data.Food
 import kotlinx.coroutines.*
 
@@ -130,9 +131,20 @@ fun main() = runBlocking {
                 }
 
                 print("Ingin memesan lagi (Y/n)? ")
-                when(readln()) {
-                    "y" -> option = true;
-                    "n" -> break;
+                val choice = readln();
+                var enum: Any;
+
+                if (choice == "y"){
+                    enum = Enum.YES;
+                }  else if (choice == "n") {
+                    enum = Enum.NO;
+                } else {
+                    error("Tidak valid")
+                }
+
+                when(enum) {
+                    Enum.YES -> option = true;
+                    Enum.NO -> break;
                 }
             }
         } catch (error: Throwable) {
